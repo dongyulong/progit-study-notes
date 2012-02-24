@@ -45,3 +45,5 @@ git log --since=2.weeks
 gitk
 
 git commit --amend
+
+git reset HEAD xx
