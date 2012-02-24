@@ -32,3 +32,4 @@ git log --stat
 在做代码审查,或者要快速浏览其他协作者提交的更新都作了哪些改动时,就可以用这个
 选项
 
+git log --pretty=online
