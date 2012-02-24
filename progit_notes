@@ -1,0 +1,16 @@
+git config --global user.name "Yulong Dong"
+git config --global user.email dongyl1996@thundersoft.com
+git config --global core.editor vim
+git config --global merge.tool vimdiff
+git config --list
+git <verb> --help
+git init
+git add README
+git commit -m 'initial project version'
+git clone [url]
+git clone git://gitbub.com/schacon/grit.git
+git clone git://gitbub.com/schacon/grit.git mygrit
+
+changes to be committed” 这行下面的,就说明是已暂存状态。
+
+cat .gitignore
