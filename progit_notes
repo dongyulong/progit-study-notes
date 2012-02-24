@@ -53,3 +53,6 @@ git reset HEAD xx
 如果觉得刚才对 benchmarks.rb 的修改完全没有必要,该如何取消修改,回到之前的状
 态(也就是修改之前的版本)呢
 git checkout -- <file>
+
+git remote 命令,它会列出每个远程库的简短名字
+ 
