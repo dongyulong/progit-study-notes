@@ -55,4 +55,11 @@ git reset HEAD xx
 git checkout -- <file>
 
 git remote 命令,它会列出每个远程库的简短名字
- 
+
+git init --bare
+dongyl@dongyl-desktop:temp.git$ git init --bare 
+Initialized empty Git repository in /home/dongyl/source/repositrny/temp.git/
+git remote add origin /home/dongyl/source/repositrny/temp.git
+git remote -v
+git push origin master
+git clone /home/dongyl/source/repositrny/temp.git
