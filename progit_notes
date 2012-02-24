@@ -43,3 +43,5 @@ git log --since=2.weeks
 --committer 仅显示指定提交者相关的提交。
 
 gitk
+
+git commit --amend
