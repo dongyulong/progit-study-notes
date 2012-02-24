@@ -33,3 +33,12 @@ git log --stat
 选项
 
 git log --pretty=online
+
+git log --since=2.weeks
+选项 说明
+-(n) 仅显示最近的 n 条提交
+--since, --after 仅显示指定时间之后的提交。
+--until, --before 仅显示指定时间之前的提交。
+--author 仅显示指定作者相关的提交。
+--committer 仅显示指定提交者相关的提交。
+
