@@ -23,3 +23,5 @@ git diff
 git rm --cached
 我们想把文件从 Git 仓库中删除(亦即从暂存区域移除),但仍然希望保留在当前工作目录中
 
+$ git mv file_from file_to
+
