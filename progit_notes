@@ -14,3 +14,8 @@ git clone git://gitbub.com/schacon/grit.git mygrit
 changes to be committed” 这行下面的,就说明是已暂存状态。
 
 cat .gitignore
+
+git diff
+此命令比较的是工作目录中当前文件和暂存区域快照之间的差异,也就是修改之后还没有暂存起来的变化内容
+
+若要看已经暂存起来的文件和上次提交时的快照之间的差异,可以用 git diff --cached命令
