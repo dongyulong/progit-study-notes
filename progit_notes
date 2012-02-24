@@ -42,3 +42,4 @@ git log --since=2.weeks
 --author 仅显示指定作者相关的提交。
 --committer 仅显示指定提交者相关的提交。
 
+gitk
