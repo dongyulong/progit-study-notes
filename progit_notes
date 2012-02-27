@@ -56,3 +56,4 @@ git checkout -- <file>
 
 git remote 命令,它会列出每个远程库的简短名字
  
+git fetch [remote-name]
