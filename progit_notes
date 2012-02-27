@@ -9,6 +9,9 @@ git config --list
 
 2.git很好的学习方法，类似man
 git <verb> --help
+git help <verb>
+man git-<verb>
+git help config
 
 3.如何建立一个新的库
 git init
@@ -18,13 +21,24 @@ git commit -m 'initial project version'
 4.如何从远程库下载库
 git clone [url]
 git clone git@github.com:dongyulong/progit-study-notes.git
+git clone git@github.com:dongyulong/progit-study-notes.git mygit
 
 5.git status
 可以查看当前库的状态
 “changes to be committed” 这行下面的,就说明是已暂存状态。
+“Untracked files”这行下面。Git 不会自动将之纳入跟踪范围,
+hanged but not updated” 这行下面,说明已跟踪文件的内容发生了变化,但还没有放到暂存区
+
 
 6.这个文件中写的是git库忽略的文件类型，具体写法可以再查，先认知
 cat .gitignore
+# 此为注释 – 将被 Git 忽略
+*.a # 忽略所有 .a 结尾的文件
+!lib.a # 但 lib.a 除外
+/TODO # 仅仅忽略项目根目录下的 TODO 文件,不包括 subdir/TODO
+build/ # 忽略 build/ 目录下的所有文件
+doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+
 
 7.git diff的用法
 git diff
@@ -34,6 +48,9 @@ git diff
 
 git rm --cached
 我们想把文件从 Git 仓库中删除(亦即从暂存区域移除),但仍然希望保留在当前工作目录中
+
+8.提交更新
+git commit
 
 8.git mv的用法
 $ git mv file_from file_to
@@ -55,6 +72,8 @@ git log --since=2.weeks
 --until, --before 仅显示指定时间之前的提交。
 --author 仅显示指定作者相关的提交。
 --committer 仅显示指定提交者相关的提交。
+-p 选项展开显示每次提交的内容差异,用 -2 则仅显示最近的两次更新:
+
 
 10.gitk一个可视化的git工具
 gitk
