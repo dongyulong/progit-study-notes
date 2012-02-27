@@ -63,3 +63,5 @@ git remote add origin /home/dongyl/source/repositrny/temp.git
 git remote -v
 git push origin master
 git clone /home/dongyl/source/repositrny/temp.git
+
+git remote -v
