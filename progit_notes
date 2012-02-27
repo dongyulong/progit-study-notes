@@ -90,3 +90,6 @@ git fetch [remote-name]
 git pull origin master
 git push origin master
 
+17.使用参数查看当前分支是否已经merge
+git branch --no-merged
+git branch --merged
