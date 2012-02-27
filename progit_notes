@@ -67,3 +67,6 @@ git clone /home/dongyl/source/repositrny/temp.git
 git remote -v
  
 git fetch [remote-name]
+
+git pull origin master
+git push origin master
