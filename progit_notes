@@ -74,6 +74,9 @@ git log --since=2.weeks
 --committer 仅显示指定提交者相关的提交。
 -p 选项展开显示每次提交的内容差异,用 -2 则仅显示最近的两次更新:
 
+$ git log test..master  查询master分支中的提交记录但不包含test分支记录
+$ git log master..test  查询test分支中的提交记录但不办含master分支记录
+
 
 10.gitk一个可视化的git工具
 gitk
@@ -112,3 +115,7 @@ git push origin master
 17.使用参数查看当前分支是否已经merge
 git branch --no-merged
 git branch --merged
+
+18.Subversion 会在服务器端自动合并提交上来的更新,而 Git 则必须先在本地合并后才能推送。
+
+19.git pull 不仅会执行git fetch的操作，git pull 还做了merge的操作。
