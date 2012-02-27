@@ -1,20 +1,32 @@
+这是阅读progit文档时的笔记，使用github管理
+
+1.git的配置
 git config --global user.name "Yulong Dong"
 git config --global user.email dongyl1996@thundersoft.com
 git config --global core.editor vim
 git config --global merge.tool vimdiff
 git config --list
+
+2.git很好的学习方法，类似man
 git <verb> --help
+
+3.如何建立一个新的库
 git init
 git add README
 git commit -m 'initial project version'
+
+4.如何从远程库下载库
 git clone [url]
-git clone git://gitbub.com/schacon/grit.git
-git clone git://gitbub.com/schacon/grit.git mygrit
+git clone git@github.com:dongyulong/progit-study-notes.git
 
-changes to be committed” 这行下面的,就说明是已暂存状态。
+5.git status
+可以查看当前库的状态
+“changes to be committed” 这行下面的,就说明是已暂存状态。
 
+6.这个文件中写的是git库忽略的文件类型，具体写法可以再查，先认知
 cat .gitignore
 
+7.git diff的用法
 git diff
 此命令比较的是工作目录中当前文件和暂存区域快照之间的差异,也就是修改之后还没有暂存起来的变化内容
 
@@ -23,8 +35,10 @@ git diff
 git rm --cached
 我们想把文件从 Git 仓库中删除(亦即从暂存区域移除),但仍然希望保留在当前工作目录中
 
+8.git mv的用法
 $ git mv file_from file_to
 
+9.git log的用法
 git log 有许多选项可以帮助你搜寻感兴趣的提交,接下来我们介绍些最常用的。
 我们常用 -p 选项展开显示每次提交的内容差异,用 -2 则仅显示最近的两次更新:
 
@@ -42,20 +56,24 @@ git log --since=2.weeks
 --author 仅显示指定作者相关的提交。
 --committer 仅显示指定提交者相关的提交。
 
+10.gitk一个可视化的git工具
 gitk
 
+11.可以追加修改
 git commit --amend
 
-撤销index中的文件
+12.撤销index中的文件
 git reset HEAD xx
 
-撤销modified的文件
+13.撤销modified的文件
 如果觉得刚才对 benchmarks.rb 的修改完全没有必要,该如何取消修改,回到之前的状
 态(也就是修改之前的版本)呢
 git checkout -- <file>
 
-git remote 命令,它会列出每个远程库的简短名字
+14.git remote 命令,它会列出每个远程库的简短名字
 
+
+15.如何在本地模拟一个git远程仓库
 git init --bare
 dongyl@dongyl-desktop:temp.git$ git init --bare 
 Initialized empty Git repository in /home/dongyl/source/repositrny/temp.git/
@@ -68,10 +86,7 @@ git remote -v
  
 git fetch [remote-name]
 
+16.如何提交/系在新的代码到远程库
 git pull origin master
 git push origin master
 
-how to resolve rebase conflict
-test rebase conflict
-
-test github
