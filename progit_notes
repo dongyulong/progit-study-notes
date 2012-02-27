@@ -70,3 +70,5 @@ git fetch [remote-name]
 
 git pull origin master
 git push origin master
+
+how to resolve rebase conflict
