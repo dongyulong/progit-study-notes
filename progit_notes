@@ -255,3 +255,7 @@ dongyl@dongyl-desktop:progit_notes$ cat .git/logs/refs/stash
 0000000000000000000000000000000000000000 009a4f1b868777d81a47509ee66cca0a83fd819f yulong dong <yulong.x.dong1@sonyericsson.com> 1330582589 +0800	WIP on develop: 6dbd408 git cat-file
 009a4f1b868777d81a47509ee66cca0a83fd819f 7c7ac7695b5a6ecebc01de716a524cefba0364fd yulong dong <yulong.x.dong1@sonyericsson.com> 1330582607 +0800	WIP on develop: 6dbd408 git cat-file
 
+27.git tag打标签
+dongyl@dongyl-desktop:progit_notes$ git tag -m "start to study git basic command" gotgit
+dongyl@dongyl-desktop:progit_notes$ git describe 
+gotgit
