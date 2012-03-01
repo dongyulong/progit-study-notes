@@ -29,6 +29,8 @@ git clone git@github.com:dongyulong/progit-study-notes.git mygit
 “Untracked files”这行下面。Git 不会自动将之纳入跟踪范围,
 hanged but not updated” 这行下面,说明已跟踪文件的内容发生了变化,但还没有放到暂存区
 
+git status -s -b -s是精简版本 -b是显示当前分支，但是1.7.2后的版本支持
+
 
 6.这个文件中写的是git库忽略的文件类型，具体写法可以再查，先认知
 cat .gitignore
@@ -76,6 +78,8 @@ git log --since=2.weeks
 
 $ git log test..master  查询master分支中的提交记录但不包含test分支记录
 $ git log master..test  查询test分支中的提交记录但不办含master分支记录
+
+$ git log --grahp  图形显示分支关系
 
 
 10.gitk一个可视化的git工具
@@ -159,4 +163,18 @@ c1d32c4 master@{2}: commit: git config -e
 重新reset到7ddd0c1
 dongyl@dongyl-desktop:progit_notes$ git reset --hard master@{1}
 HEAD is now at 7ddd0c1 git ls-tree
+
+23.查看对象id的内容
+   git cat-file -p ID
+
+24.
+1.master的head指针指向的id
+dongyl@dongyl-desktop:progit_notes$ cat .git/refs/heads/master 
+7ddd0c14bbb6a24b21d16c57584f4bc85ccec43c
+2.当前head指向的分支
+dongyl@dongyl-desktop:progit_notes$ cat .git/HEAD
+ref: refs/heads/develop
+3.其他分支的head指向的id
+dongyl@dongyl-desktop:progit_notes$ cat .git/refs/heads/develop 
+7ddd0c14bbb6a24b21d16c57584f4bc85ccec43c
 
