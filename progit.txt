@@ -128,6 +128,7 @@ git branch --merged
 18.Subversion 会在服务器端自动合并提交上来的更新,而 Git 则必须先在本地合并后才能推送。
 
 19.git pull 不仅会执行git fetch的操作，git pull 还做了merge的操作。
+git pull = git fetch + git merge
 
 20.git config 参数不同修改配置文件也不一样
    git config -e
