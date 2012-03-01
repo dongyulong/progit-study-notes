@@ -81,6 +81,9 @@ $ git log master..test  查询test分支中的提交记录但不办含master分�
 
 $ git log --grahp  图形显示分支关系
 
+显示最近的三条日志
+$ git log -3
+
 
 10.gitk一个可视化的git工具
 gitk
@@ -259,3 +262,13 @@ dongyl@dongyl-desktop:progit_notes$ cat .git/logs/refs/stash
 dongyl@dongyl-desktop:progit_notes$ git tag -m "start to study git basic command" gotgit
 dongyl@dongyl-desktop:progit_notes$ git describe 
 gotgit
+
+28.文件追溯
+git blame 文件名
+
+29.单步悔棋
+git commit --amend 可以修改最近一次提交无须再提交一次
+
+30.多步悔棋
+git reset --soft SHA1
+git commit 
