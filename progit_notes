@@ -127,3 +127,36 @@ git branch --merged
 
 21.查看暂存区和head的目录树
    git ls-tree
+
+22.如何恢复reset --hard的操作
+首先看到最新的提交是7ddd0c1
+dongyl@dongyl-desktop:progit_notes$ git log --pretty=oneline
+7ddd0c14bbb6a24b21d16c57584f4bc85ccec43c git ls-tree
+c1d32c4dce33bad80ed6c8c674a5f3c937fce9a3 git config -e
+511fb575d36b5721875cf8121dee235ce031689c add comment
+513ec842dd82608e2d97529008e60a8299e5f9e3 review notes
+
+做了hard的reset到c1d32c4dc
+dongyl@dongyl-desktop:progit_notes$ git reset c1d32c4dce33 --hard 
+HEAD is now at c1d32c4 git config -e
+
+可以看到最新的提交已经变成了c1d32c4dc
+dongyl@dongyl-desktop:progit_notes$ tail -5 .git/logs/refs/heads/master 
+1b8ef2b2626778d920e21f43148c980865d34398 513ec842dd82608e2d97529008e60a8299e5f9e3 yulong dong <yulong.x.dong1@sonyericsson.com> 1330336480 +0800	commit: review notes
+513ec842dd82608e2d97529008e60a8299e5f9e3 511fb575d36b5721875cf8121dee235ce031689c yulong dong <yulong.x.dong1@sonyericsson.com> 1330337919 +0800	commit: add comment
+511fb575d36b5721875cf8121dee235ce031689c c1d32c4dce33bad80ed6c8c674a5f3c937fce9a3 yulong dong <yulong.x.dong1@sonyericsson.com> 1330570485 +0800	commit: git config -e
+c1d32c4dce33bad80ed6c8c674a5f3c937fce9a3 7ddd0c14bbb6a24b21d16c57584f4bc85ccec43c yulong dong <yulong.x.dong1@sonyericsson.com> 1330571978 +0800	commit: git ls-tree
+7ddd0c14bbb6a24b21d16c57584f4bc85ccec43c c1d32c4dce33bad80ed6c8c674a5f3c937fce9a3 yulong dong <yulong.x.dong1@sonyericsson.com> 1330579262 +0800	c1d32c4dce33: updating HEAD
+
+显出reset前的状态
+dongyl@dongyl-desktop:progit_notes$ git reflog show master | head -5
+c1d32c4 master@{0}: c1d32c4dce33: updating HEAD
+7ddd0c1 master@{1}: commit: git ls-tree
+c1d32c4 master@{2}: commit: git config -e
+511fb57 master@{3}: commit: add comment
+513ec84 master@{4}: commit: review notes
+
+重新reset到7ddd0c1
+dongyl@dongyl-desktop:progit_notes$ git reset --hard master@{1}
+HEAD is now at 7ddd0c1 git ls-tree
+
