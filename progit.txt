@@ -85,8 +85,10 @@ $ git log --grahp  图形显示分支关系
 $ git log -3
 
 
-10.gitk一个可视化的git工具
+10.gitk,gitg,qgit可视化的git工具
 gitk
+sudo apt-get install qgit
+sudo apt-get install gitg
 
 11.可以追加修改
 git commit --amend
