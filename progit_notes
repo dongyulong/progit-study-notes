@@ -178,3 +178,80 @@ ref: refs/heads/develop
 dongyl@dongyl-desktop:progit_notes$ cat .git/refs/heads/develop 
 7ddd0c14bbb6a24b21d16c57584f4bc85ccec43c
 
+25.分离头指针问题
+dongyl@dongyl-desktop:progit_notes$ git co 47d40930df4
+Note: checking out '47d40930df4'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by performing another checkout.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -b with the checkout command again. Example:
+
+  git checkout -b new_branch_name
+
+  HEAD is now at 47d4093... how to reset "reset --hard"
+  dongyl@dongyl-desktop:progit_notes$ git br
+  * (no branch) 47d4093 how to reset "reset --hard"
+    develop     6dbd408 git cat-file
+	  master      6dbd408 [ahead 4] git cat-file
+	  
+dongyl@dongyl-desktop:progit_notes$ git rev-parse HEAD master develop
+47d40930df475fe91f4c0cb93a775599746b14ac
+6dbd4082384eba050196628c25c858e265e86d7e
+6dbd4082384eba050196628c25c858e265e86d7e
+
+dongyl@dongyl-desktop:progit_notes$ git st
+# Not currently on any branch.
+nothing to commit (working directory clean)
+
+dongyl@dongyl-desktop:progit_notes$ git commit -a
+# Not currently on any branch.
+	nothing to commit (working directory clean)
+	dongyl@dongyl-desktop:progit_notes$ git checkout master 
+	Previous HEAD position was 47d4093... how to reset "reset --hard"
+	Switched to branch 'master'
+	Your branch is ahead of 'origin/master' by 4 commits.
+	dongyl@dongyl-desktop:progit_notes$ git rev-parse HEAD master develop
+	6dbd4082384eba050196628c25c858e265e86d7e
+	6dbd4082384eba050196628c25c858e265e86d7e
+	6dbd4082384eba050196628c25c858e265e86d7e
+
+26.git clean清楚untracked file
+       -d
+Remove untracked directories in addition to untracked files. If an untracked directory is managed by a different git repository, it is not removed by default.
+Use -f option twice if you really want to remove such a directory.
+       -n, --dry-run
+Don’t actually remove anything, just show what would be done.
+
+27.git stash
+首先对已做的改变做git stash之后workspace就干净了
+dongyl@dongyl-desktop:progit_notes$ git stash
+Saved working directory and index state WIP on develop: 6dbd408 git cat-file
+HEAD is now at 6dbd408 git cat-file
+
+增加xx文件，并加入stash
+dongyl@dongyl-desktop:progit_notes$ touch xx
+dongyl@dongyl-desktop:progit_notes$ git add xx
+dongyl@dongyl-desktop:progit_notes$ git stash
+Saved working directory and index state WIP on develop: 6dbd408 git cat-file
+HEAD is now at 6dbd408 git cat-file
+
+看reflog
+dongyl@dongyl-desktop:progit_notes$ git reflog show refs/stash
+7c7ac76 refs/stash@{0}: WIP on develop: 6dbd408 git cat-file
+009a4f1 refs/stash@{1}: WIP on develop: 6dbd408 git cat-file
+
+list结果和reflog一样
+dongyl@dongyl-desktop:progit_notes$ git stash list
+stash@{0}: WIP on develop: 6dbd408 git cat-file
+stash@{1}: WIP on develop: 6dbd408 git cat-file
+
+dongyl@dongyl-desktop:progit_notes$ cat .git/refs/stash 
+7c7ac7695b5a6ecebc01de716a524cefba0364fd
+
+dongyl@dongyl-desktop:progit_notes$ cat .git/logs/refs/stash 
+0000000000000000000000000000000000000000 009a4f1b868777d81a47509ee66cca0a83fd819f yulong dong <yulong.x.dong1@sonyericsson.com> 1330582589 +0800	WIP on develop: 6dbd408 git cat-file
+009a4f1b868777d81a47509ee66cca0a83fd819f 7c7ac7695b5a6ecebc01de716a524cefba0364fd yulong dong <yulong.x.dong1@sonyericsson.com> 1330582607 +0800	WIP on develop: 6dbd408 git cat-file
+
