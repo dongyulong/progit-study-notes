@@ -278,3 +278,7 @@ git commit
 
 31.git fetch
  git fetch zhangsan@192.168.x.x:~/semc-dev/source/ics-mogami-docomo/kernel ics-mogami-docomo-dev:ttt
+
+32.查看某一处代码什么时候提交的
+dongyl@dongyl-desktop:source$ git blame rapid-init-source.sh | grep "tar xvf \$PROJECT\_FILE \-C \.\/\.repo\-common\/"
+31f47123 (fanlifeng 2012-02-17 10:11:19 +0800 21) tar xvf $PROJECT_FILE -C ./.repo-common/ 
