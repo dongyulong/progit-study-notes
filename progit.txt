@@ -275,3 +275,6 @@ git commit --amend 可以修改最近一次提交无须再提交一次
 30.多步悔棋
 git reset --soft SHA1
 git commit 
+
+31.git fetch
+ git fetch zhangsan@192.168.x.x:~/semc-dev/source/ics-mogami-docomo/kernel ics-mogami-docomo-dev:ttt
